@@ -1,8 +1,14 @@
+import React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  variable: "--font-space-mono",
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "LLM Test Dashboard",
@@ -16,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={spaceMono.className}>{children}</body>
     </html>
   );
 }

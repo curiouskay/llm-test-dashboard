@@ -1,13 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
+import Link from "next/link";
 
 interface Project {
   name: string;
   image: string;
   details: string[];
+  id: string;
 }
-
 
 const Projects: React.FC<{}> = async () => {
   const projects = await getProjectsProps();
@@ -18,9 +19,10 @@ const Projects: React.FC<{}> = async () => {
         <h1 className="text-5xl pb-10">projects</h1>
         <div className="grid grid-cols-3 gap-10 text-black">
           {projects.map((project, index) => (
-            <div
+            <Link
               key={index}
               className="h-4/5 bg-sage-green p-4 mt-20 rounded-2xl relative"
+              href={`/projects/${project.id}`}
             >
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <Image
@@ -43,7 +45,7 @@ const Projects: React.FC<{}> = async () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -52,25 +54,27 @@ const Projects: React.FC<{}> = async () => {
 };
 
 export async function getProjectsProps() {
-  // TODO: Add call to retrieve details from the backend 
+  // TODO: Add call to retrieve details from the backend
   const projects = [
     {
-      "name": "Code Companion",
-      "image": "/project-imgs/code.png",
-      "details": ["Llama 3", "Fine-Tuned for Java"]
+      name: "Code Companion",
+      image: "/project-imgs/code.png",
+      details: ["Llama 3", "Fine-Tuned for Java"],
+      id: "code-companion",
     },
     {
-      "name": "Gardening Assistant",
-      "image": "/project-imgs/code.png",
-      "details": ["Mistral", "Expert in Maryland gardening"]
+      name: "Gardening Assistant",
+      image: "/project-imgs/code.png",
+      details: ["Mistral", "Expert in Maryland gardening"],
+      id: "gardening-assistant",
     },
     {
-      "name": "Blog Editor",
-      "image": "/project-imgs/code.png",
-      "details": ["Mistral", "Expert in writing technical blogs"]
+      name: "Blog Editor",
+      image: "/project-imgs/code.png",
+      details: ["Mistral", "Expert in writing technical blogs"],
+      id: "blog-editor",
     },
-    
-  ]
+  ];
 
   return projects;
 }

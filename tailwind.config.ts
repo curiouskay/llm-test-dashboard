@@ -17,6 +17,7 @@ const config: Config = {
         "dark-teal": "#003a3a",
         "gold": "#C2A83E",
         "sage-green": "#7ca982",
+        "sage-green-light": "#96ba96",
         "dark-brown": "#27220c",
         "black": "#030301"
       }

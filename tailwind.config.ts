@@ -15,7 +15,10 @@ const config: Config = {
       },
       colors: {
         "dark-teal": "#003a3a",
-        "gold": "#C2A83E"
+        "gold": "#C2A83E",
+        "sage-green": "#7ca982",
+        "dark-brown": "#27220c",
+        "black": "#030301"
       }
     },
   },
